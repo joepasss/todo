@@ -3,6 +3,7 @@ import {
   DeleteTodoAction,
   InitalizeTodoAction,
   TodoStateValue,
+  ToggleAction,
 } from './TodoStateType';
 import data from '../data/mockup.json';
 import { TodoDataType } from '../types/todo';
@@ -17,7 +18,7 @@ const defultStateValue: TodoStateValue = {
   },
   states: {
     isCalendarOpen: false,
-    isAddPageOpen: false,
+    isPageOpen: false,
   },
 
   today: new Date(),
@@ -25,7 +26,7 @@ const defultStateValue: TodoStateValue = {
 
 export const AppStateContext = createContext(defultStateValue);
 export const AppDispatchContext = createContext<
-  React.Dispatch<DeleteTodoAction> | undefined
+  React.Dispatch<DeleteTodoAction | ToggleAction> | undefined
 >(undefined);
 
 const deleteItem = (id: string, item: TodoDataType[]) => {
@@ -36,7 +37,7 @@ const deleteItem = (id: string, item: TodoDataType[]) => {
 
 const reducer = (
   state: TodoStateValue,
-  action: DeleteTodoAction | InitalizeTodoAction
+  action: DeleteTodoAction | InitalizeTodoAction | ToggleAction
 ) => {
   if (action.type === 'DELETE_TODO') {
     return {
@@ -45,6 +46,8 @@ const reducer = (
     };
   } else if (action.type === 'INITALIZE_TODO') {
     return { ...state, todo: action.payload.todo };
+  } else if (action.type === 'TOGGLE') {
+    return { ...state, states: action.payload.states };
   }
 
   return state;

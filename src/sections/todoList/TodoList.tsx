@@ -1,12 +1,14 @@
 import { FC } from 'react';
 import Divider from '../../components/divider/divider';
 import Todo from '../../components/todo/Todo';
-import { AppStateContext } from '../../context/TodoState';
+import { AppStateContext, useDispatch } from '../../context/TodoState';
 import { AddTodo } from '../../pages/AddTodo';
 import { TodoDataType } from '../../types/todo';
 
 export const TodoList: FC = () => {
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+  const dispatch = useDispatch();
 
   return (
     <AppStateContext.Consumer>
@@ -25,7 +27,17 @@ export const TodoList: FC = () => {
                       ? 'todolist__header--contents__trailler active'
                       : 'todolist__header--contents__trailler'
                   }
-                  onClick={() => {}}
+                  onClick={() => {
+                    dispatch({
+                      type: 'TOGGLE',
+                      payload: {
+                        states: {
+                          isCalendarOpen: !state.states.isCalendarOpen,
+                          isPageOpen: false,
+                        },
+                      },
+                    });
+                  }}
                 >
                   &and;
                 </h3>
@@ -34,7 +46,17 @@ export const TodoList: FC = () => {
               <div className='todolist__header--trailler'>
                 <h3
                   className='todolist__header--trailler__addbtn'
-                  onClick={() => {}}
+                  onClick={() => {
+                    dispatch({
+                      type: 'TOGGLE',
+                      payload: {
+                        states: {
+                          isCalendarOpen: false,
+                          isPageOpen: !state.states.isPageOpen,
+                        },
+                      },
+                    });
+                  }}
                 >
                   +
                 </h3>
@@ -44,7 +66,20 @@ export const TodoList: FC = () => {
               <div className='todolist__empty'>
                 <h3 className='todolist__empty--header'>NO TODOs</h3>
 
-                <button className='todolist__empty--addbtn' onClick={() => {}}>
+                <button
+                  className='todolist__empty--addbtn'
+                  onClick={() => {
+                    dispatch({
+                      type: 'TOGGLE',
+                      payload: {
+                        states: {
+                          isCalendarOpen: false,
+                          isPageOpen: !state.states.isPageOpen,
+                        },
+                      },
+                    });
+                  }}
+                >
                   Add TODO
                 </button>
               </div>
@@ -58,7 +93,7 @@ export const TodoList: FC = () => {
 
             <Divider />
 
-            {state.states.isAddPageOpen && <AddTodo />}
+            {state.states.isPageOpen && <AddTodo />}
           </section>
         );
       }}

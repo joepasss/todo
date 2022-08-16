@@ -6,7 +6,7 @@ export interface TodoStateValue {
   };
   states: {
     isCalendarOpen: boolean;
-    isAddPageOpen: boolean;
+    isPageOpen: boolean;
   };
   today: Date;
 }
@@ -24,5 +24,11 @@ export interface DeleteTodoAction extends Action<'DELETE_TODO'> {
 export interface InitalizeTodoAction extends Action<'INITALIZE_TODO'> {
   payload: {
     todo: TodoStateValue['todo'];
+  };
+}
+
+export interface ToggleAction extends Action<'TOGGLE'> {
+  payload: {
+    states: TodoStateValue['states'];
   };
 }
