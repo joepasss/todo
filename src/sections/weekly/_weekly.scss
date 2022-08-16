@@ -1,0 +1,10 @@
+.weekly {
+  grid-column: center-start / center-end;
+
+  @extend %sec-padding;
+
+  &__content {
+    display: flex;
+    gap: 2rem;
+  }
+}

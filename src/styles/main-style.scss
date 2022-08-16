@@ -1,0 +1,38 @@
+// 1300px break point
+@mixin media-desktop {
+  @media screen and (min-width: break-point(desktop)) {
+    @content;
+  }
+}
+
+// 800px break point
+@mixin media-tablet {
+  @media screen and (max-width: break-point(tablet)) {
+    @content;
+  }
+}
+
+// 600px break point
+@mixin media-medium {
+  @media screen and (max-width: break-point(medium)) {
+    @content;
+  }
+}
+
+// 400px break point
+@mixin media-small {
+  @media screen and (max-width: break-point(small)) {
+    @content;
+  }
+}
+
+@import './reset';
+@import './variables';
+@import './utilities';
+
+@import '../sections/weekly/weekly';
+
+// placeholders
+%sec-padding {
+  padding: 6vh 4vw;
+}

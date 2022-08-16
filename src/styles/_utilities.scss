@@ -1,0 +1,52 @@
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.9;
+  background-color: var(--color-primary);
+}
+
+.container {
+  display: grid;
+  grid-template-columns:
+    [container-start] 1fr [center-start] repeat(
+      6,
+      [col-start] minmax(min-content, 16.66667rem) [col-end]
+    )
+    [center-end] 1fr [container-end];
+  grid-template-rows: min-content 90vh repeat(9, min-content);
+
+  @include media-tablet {
+    grid-template-rows: min-content 100vh repeat(9, min-content);
+  }
+}
+
+li {
+  list-style: none;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: white;
+  font-weight: font-weight(small);
+  font-size: font-size(small);
+}
+
+i {
+  color: var(--color-primary);
+  font-size: font-size(medium);
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  font-size: font-size(medium);
+  font-family: $logo-font;
+}
