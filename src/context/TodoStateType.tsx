@@ -8,9 +8,7 @@ export interface TodoStateValue {
     isCalendarOpen: boolean;
     isAddPageOpen: boolean;
   };
-  dates: {
-    today: Date;
-  };
+  today: Date;
 }
 
 interface Action<T> {

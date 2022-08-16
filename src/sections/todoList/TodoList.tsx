@@ -6,8 +6,6 @@ import { AddTodo } from '../../pages/AddTodo';
 import { TodoDataType } from '../../types/todo';
 
 export const TodoList: FC = () => {
-  const today = new Date();
-
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   return (
@@ -18,8 +16,8 @@ export const TodoList: FC = () => {
             <div className='todolist__header'>
               <div className='todolist__header--contents'>
                 <h2 className='todolist__header--contents__title'>
-                  {today.getMonth() + 1}월 {today.getDate()}일{' '}
-                  {days[today.getDay()]}
+                  {state.today.getMonth() + 1}월 {state.today.getDate()}일{' '}
+                  {days[state.today.getDay()]}
                 </h2>
                 <h3
                   className={

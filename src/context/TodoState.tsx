@@ -19,9 +19,8 @@ const defultStateValue: TodoStateValue = {
     isCalendarOpen: false,
     isAddPageOpen: false,
   },
-  dates: {
-    today: new Date(),
-  },
+
+  today: new Date(),
 };
 
 export const AppStateContext = createContext(defultStateValue);
