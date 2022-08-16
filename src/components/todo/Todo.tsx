@@ -1,12 +1,18 @@
+import { FC } from 'react';
+import { TodoDataType } from '../../types/todo';
 import './todo.scss';
 
-const Todo = () => {
+interface Props {
+  todo: TodoDataType;
+}
+
+const Todo: FC<Props> = ({ todo }) => {
   return (
     <div className='todo'>
       <div className='todo__content'>
-        <h3 className='todo__content--icon'>📄</h3>
+        <h3 className='todo__content--icon'>{todo.icon}</h3>
 
-        <h3 className='todo__content--title'>TITLE</h3>
+        <h3 className='todo__content--title'>{todo.title}</h3>
       </div>
 
       <div className='todo__trailler'>
