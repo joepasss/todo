@@ -1,14 +1,17 @@
 import { FC, useState } from 'react';
 import Divider from '../../components/divider/divider';
 import Todo from '../../components/todo/Todo';
+import { AddTodo } from '../../pages/AddTodo';
 import { TodoDataType } from '../../types/todo';
 
 interface Props {
   todoList: TodoDataType[];
+  deleteFunction: Function;
 }
 
-export const TodoList: FC<Props> = ({ todoList }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+export const TodoList: FC<Props> = ({ todoList, deleteFunction }) => {
+  const [isCalendarOpen, setIsCalendarOpen] = useState<boolean>(false);
+  const [isAddPageOpen, setIsPageOpen] = useState<boolean>(false);
 
   const today = new Date();
 
@@ -22,11 +25,11 @@ export const TodoList: FC<Props> = ({ todoList }) => {
         </h2>
         <h3
           className={
-            isOpen
+            isCalendarOpen
               ? 'todolist__header--trailler active'
               : 'todolist__header--trailler'
           }
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsCalendarOpen(!isCalendarOpen)}
         >
           &and;
         </h3>
@@ -35,17 +38,24 @@ export const TodoList: FC<Props> = ({ todoList }) => {
         <div className='todolist__empty'>
           <h3 className='todolist__empty--header'>NO TODOs</h3>
 
-          <button className='todolist__empty--addbtn'>Add TODO</button>
+          <button
+            className='todolist__empty--addbtn'
+            onClick={() => setIsPageOpen(!isAddPageOpen)}
+          >
+            Add TODO
+          </button>
         </div>
       ) : (
         <div className='todolist__content'>
           {todoList.map((todo: TodoDataType) => (
-            <Todo todo={todo} key={todo.id} />
+            <Todo todo={todo} key={todo.id} deleteFunction={deleteFunction} />
           ))}
         </div>
       )}
 
       <Divider />
+
+      {isAddPageOpen && <AddTodo />}
     </section>
   );
 };

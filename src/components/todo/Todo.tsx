@@ -4,9 +4,10 @@ import './todo.scss';
 
 interface Props {
   todo: TodoDataType;
+  deleteFunction: Function;
 }
 
-const Todo: FC<Props> = ({ todo }) => {
+const Todo: FC<Props> = ({ todo, deleteFunction }) => {
   return (
     <div className='todo'>
       <div className='todo__content'>
@@ -17,7 +18,12 @@ const Todo: FC<Props> = ({ todo }) => {
 
       <div className='todo__trailler'>
         <div className='todo__trailler--moreinfo'>
-          <h3 className='todo__trailler--moreinfo__icon'>🗑️</h3>
+          <h3
+            className='todo__trailler--moreinfo__icon'
+            onClick={() => deleteFunction(todo.id)}
+          >
+            🗑️
+          </h3>
         </div>
       </div>
     </div>
