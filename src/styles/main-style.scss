@@ -30,9 +30,32 @@
 @import './variables';
 @import './utilities';
 
-@import '../sections/weekly/weekly';
+@import '../sections/header/header';
+@import '../sections/todoList/todoList';
 
 // placeholders
 %sec-padding {
-  padding: 6vh 4vw;
+  padding: 2vh 4vw;
+}
+
+%sec-heading {
+  font-size: font-size(medium);
+  font-weight: font-weight(light);
+  letter-spacing: 0.2rem;
+  color: black;
+}
+
+%sec-para {
+  font-size: font-size(small);
+  letter-spacing: 0.2rem;
+  color: black;
+}
+
+%sec-h3 {
+  font-size: font-size(small);
+  color: black;
+}
+
+%sec-h4 {
+  color: black;
 }

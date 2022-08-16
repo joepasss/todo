@@ -1,22 +1,15 @@
-import Divider from '../../components/divider/divider';
-import './header.scss';
-
-export interface IHeaderProps {}
-
-export function Header(props: IHeaderProps) {
+export function Header() {
   return (
     <section className='header'>
       <div className='header__contents'>
-        <h1 className='header__contents--title'>TODO</h1>
+        <h1 className='header__contents--title'>✔️</h1>
 
         <div className='header__contents--about'>
           <a href='#!' className='header__contents--about__link'>
-            about
+            <p className='header__contents--about__link--para'>?</p>
           </a>
         </div>
       </div>
-
-      <Divider />
     </section>
   );
 }

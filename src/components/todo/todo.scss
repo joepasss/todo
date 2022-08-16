@@ -1,0 +1,74 @@
+@import '../../styles/main-style.scss';
+
+.todo {
+  cursor: pointer;
+
+  margin: 1rem 2rem;
+  padding: 2rem 3rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  transition: transform 0.25s cubic-bezier(1, 0, 0, 1);
+
+  &__content {
+    display: flex;
+    position: relative;
+
+    &--icon {
+      font-size: font-size(small);
+
+      width: 5rem;
+      aspect-ratio: 2 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-right: solid 0.2rem rgba(0, 0, 0, 0.5);
+    }
+
+    &--title {
+      font-size: font-size(small);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      margin-left: 2rem;
+    }
+  }
+
+  &__trailler {
+    &--moreinfo {
+      width: 4rem;
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+
+      transition: all 0.25s cubic-bezier(1, 0, 0, 1);
+
+      &__icon {
+        font-size: font-size(small);
+      }
+
+      &:hover,
+      &:active {
+        background-color: white;
+      }
+    }
+  }
+
+  &:hover,
+  &:active {
+    transform: scale(1.025);
+  }
+}

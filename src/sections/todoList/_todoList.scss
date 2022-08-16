@@ -1,10 +1,9 @@
-.weekly {
+.todolist {
   grid-column: center-start / center-end;
 
   @extend %sec-padding;
 
-  &__content {
-    display: flex;
-    gap: 2rem;
+  &__header {
+    @extend %sec-heading;
   }
 }
