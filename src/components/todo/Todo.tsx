@@ -1,13 +1,24 @@
 import { FC } from 'react';
+import { useDispatch } from '../../context/TodoState';
 import { TodoDataType } from '../../types/todo';
 import './todo.scss';
 
 interface Props {
   todo: TodoDataType;
-  deleteFunction: Function;
 }
 
-const Todo: FC<Props> = ({ todo, deleteFunction }) => {
+const Todo: FC<Props> = ({ todo }) => {
+  const dispatch = useDispatch();
+
+  const deleteFunction = (id: string) => {
+    dispatch({
+      type: 'DELETE_TODO',
+      payload: {
+        id: id,
+      },
+    });
+  };
+
   return (
     <div className='todo'>
       <div className='todo__content'>
