@@ -6,32 +6,62 @@
   &__header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
-    gap: 2rem;
+    &--contents {
+      display: flex;
+      align-items: center;
 
-    &--title {
-      @extend %sec-heading;
+      gap: 2rem;
+
+      &__title {
+        @extend %sec-heading;
+      }
+
+      &__trailler {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        font-size: font-size(small);
+        font-weight: font-weight(bold);
+
+        border: solid 0.2rem black;
+        border-radius: 50%;
+        width: 4rem;
+        aspect-ratio: 1 / 1;
+        transition: all 0.25s cubic-bezier(1, 0, 0, 1);
+        transform: rotate(0.5turn);
+      }
+
+      &__trailler.active {
+        transform: rotate(0turn);
+      }
     }
 
     &--trailler {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
+      &__addbtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
 
-      font-size: font-size(small);
-      font-weight: font-weight(bold);
+        font-size: font-size(small);
+        font-weight: font-weight(bold);
 
-      border: solid 0.2rem black;
-      border-radius: 50%;
-      width: 4rem;
-      aspect-ratio: 1 / 1;
-      transition: all 0.25s cubic-bezier(1, 0, 0, 1);
-      transform: rotate(0.5turn);
-    }
+        border: solid 0.2rem black;
+        border-radius: 50%;
+        width: 4rem;
+        aspect-ratio: 1 / 1;
+        transition: all 0.25s cubic-bezier(1, 0, 0, 1);
+      }
 
-    &--trailler.active {
-      transform: rotate(0turn);
+      &__addbtn:hover,
+      &__addbtn:active {
+        color: white;
+        background-color: black;
+      }
     }
   }
 

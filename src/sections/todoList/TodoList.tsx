@@ -20,19 +20,25 @@ export const TodoList: FC<Props> = ({ todoList, deleteFunction }) => {
   return (
     <section className='todolist'>
       <div className='todolist__header'>
-        <h2 className='todolist__header--title'>
-          {today.getMonth() + 1}월 {today.getDate()}일 {days[today.getDay()]}
-        </h2>
-        <h3
-          className={
-            isCalendarOpen
-              ? 'todolist__header--trailler active'
-              : 'todolist__header--trailler'
-          }
-          onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-        >
-          &and;
-        </h3>
+        <div className='todolist__header--contents'>
+          <h2 className='todolist__header--contents__title'>
+            {today.getMonth() + 1}월 {today.getDate()}일 {days[today.getDay()]}
+          </h2>
+          <h3
+            className={
+              isCalendarOpen
+                ? 'todolist__header--contents__trailler active'
+                : 'todolist__header--contents__trailler'
+            }
+            onClick={() => setIsCalendarOpen(!isCalendarOpen)}
+          >
+            &and;
+          </h3>
+        </div>
+
+        <div className='todolist__header--trailler'>
+          <h3 className='todolist__header--trailler__addbtn'>+</h3>
+        </div>
       </div>
       {todoList.length === 0 ? (
         <div className='todolist__empty'>

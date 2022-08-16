@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Header } from '../sections/header/Header';
 import { TodoList } from '../sections/todoList/TodoList';
 import './home.scss';
