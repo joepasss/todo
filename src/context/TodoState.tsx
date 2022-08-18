@@ -1,12 +1,11 @@
-import React, { createContext, useContext, useEffect, useReducer } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 import {
+  AddTodoAction,
   DeleteTodoAction,
-  InitalizeTodoAction,
   TodoStateValue,
   ToggleAction,
 } from './TodoStateType';
-import data from '../data/mockup.json';
-import { TodoDataType } from '../types/todo';
+import reducer from './TodoStateReducer';
 
 interface Props {
   children: React.ReactNode;
@@ -26,32 +25,8 @@ const defultStateValue: TodoStateValue = {
 
 export const AppStateContext = createContext(defultStateValue);
 export const AppDispatchContext = createContext<
-  React.Dispatch<DeleteTodoAction | ToggleAction> | undefined
+  React.Dispatch<DeleteTodoAction | ToggleAction | AddTodoAction> | undefined
 >(undefined);
-
-const deleteItem = (id: string, item: TodoDataType[]) => {
-  const newTodo = item.filter((item: TodoDataType) => item.id !== id);
-
-  return newTodo;
-};
-
-const reducer = (
-  state: TodoStateValue,
-  action: DeleteTodoAction | InitalizeTodoAction | ToggleAction
-) => {
-  if (action.type === 'DELETE_TODO') {
-    return {
-      ...state,
-      todo: { items: deleteItem(action.payload.id, state.todo.items) },
-    };
-  } else if (action.type === 'INITALIZE_TODO') {
-    return { ...state, todo: action.payload.todo };
-  } else if (action.type === 'TOGGLE') {
-    return { ...state, states: action.payload.states };
-  }
-
-  return state;
-};
 
 export const useDispatch = () => {
   const dispatch = useContext(AppDispatchContext);
@@ -67,17 +42,6 @@ export const useDispatch = () => {
 
 const TodoStateProvider: React.FC<Props> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, defultStateValue);
-
-  useEffect(() => {
-    const items: TodoDataType[] = data;
-
-    if (items) {
-      dispatch({
-        type: 'INITALIZE_TODO',
-        payload: { todo: { items } },
-      });
-    }
-  }, []);
 
   return (
     <AppStateContext.Provider value={state}>
