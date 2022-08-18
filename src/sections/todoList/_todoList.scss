@@ -24,15 +24,20 @@
         justify-content: center;
         cursor: pointer;
 
-        font-size: font-size(small);
-        font-weight: font-weight(bold);
-
         border: solid 0.2rem black;
         border-radius: 50%;
-        width: 4rem;
+        width: 3.5rem;
         aspect-ratio: 1 / 1;
         transition: all 0.25s cubic-bezier(1, 0, 0, 1);
         transform: rotate(0.5turn);
+
+        &--content {
+          font-size: 1.5rem;
+          font-weight: font-weight(bold);
+
+          display: block;
+          transition: all 0.25s cubic-bezier(1, 0, 0, 1);
+        }
       }
 
       &__trailler.active {

@@ -1,3 +1,5 @@
+import CircleBtn from '../../components/circleBtn/CircleBtn';
+
 export function Header() {
   return (
     <section className='header'>
@@ -5,9 +7,7 @@ export function Header() {
         <h1 className='header__contents--title'>✔️</h1>
 
         <div className='header__contents--about'>
-          <a href='#!' className='header__contents--about__link'>
-            <p className='header__contents--about__link--para'>?</p>
-          </a>
+          <CircleBtn content='?' />
         </div>
       </div>
     </section>

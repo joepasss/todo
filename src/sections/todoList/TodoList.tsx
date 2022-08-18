@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import CircleBtn from '../../components/circleBtn/CircleBtn';
 import Divider from '../../components/divider/divider';
 import Todo from '../../components/todo/Todo';
 import { AppStateContext, useDispatch } from '../../context/TodoState';
@@ -11,33 +12,33 @@ export const TodoList: FC = () => {
 
   const dispatch = useDispatch();
 
-  const toggle = (type: 'CAL' | 'PAGE', state: TodoStateValue) => {
-    if (type === 'CAL') {
-      dispatch({
-        type: 'TOGGLE',
-        payload: {
-          states: {
-            isCalendarOpen: !state.states.isCalendarOpen,
-            isPageOpen: false,
-          },
-        },
-      });
-    } else if (type === 'PAGE') {
-      dispatch({
-        type: 'TOGGLE',
-        payload: {
-          states: {
-            isCalendarOpen: false,
-            isPageOpen: !state.states.isPageOpen,
-          },
-        },
-      });
-    }
-  };
-
   return (
     <AppStateContext.Consumer>
       {(state) => {
+        const pageToggle = () => {
+          dispatch({
+            type: 'TOGGLE',
+            payload: {
+              states: {
+                isCalendarOpen: false,
+                isPageOpen: !state.states.isPageOpen,
+              },
+            },
+          });
+        };
+
+        const calToggel = () => {
+          dispatch({
+            type: 'TOGGLE',
+            payload: {
+              states: {
+                isCalendarOpen: !state.states.isCalendarOpen,
+                isPageOpen: false,
+              },
+            },
+          });
+        };
+
         return (
           <section className='todolist'>
             <div className='todolist__header'>
@@ -52,23 +53,16 @@ export const TodoList: FC = () => {
                       ? 'todolist__header--contents__trailler active'
                       : 'todolist__header--contents__trailler'
                   }
-                  onClick={() => {
-                    toggle('CAL', state);
-                  }}
+                  onClick={() => calToggel()}
                 >
-                  &and;
+                  <p className='todolist__header--contents__trailler--content'>
+                    &and;
+                  </p>
                 </h3>
               </div>
 
               <div className='todolist__header--trailler'>
-                <h3
-                  className='todolist__header--trailler__addbtn'
-                  onClick={() => {
-                    toggle('PAGE', state);
-                  }}
-                >
-                  +
-                </h3>
+                <CircleBtn content='+' clickHandler={pageToggle} />
               </div>
             </div>
             {state.todo.items.length === 0 ? (
@@ -77,9 +71,7 @@ export const TodoList: FC = () => {
 
                 <button
                   className='todolist__empty--addbtn'
-                  onClick={() => {
-                    toggle('PAGE', state);
-                  }}
+                  onClick={() => pageToggle()}
                 >
                   Add TODO
                 </button>

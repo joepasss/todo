@@ -7,6 +7,10 @@
     justify-content: space-between;
     align-items: center;
 
+    &--title {
+      font-size: 2.5rem;
+    }
+
     &--about {
       display: flex;
       align-items: center;
@@ -17,7 +21,7 @@
         align-items: center;
         justify-content: center;
 
-        height: 4rem;
+        height: 3.5rem;
         aspect-ratio: 1 / 1;
         border-radius: 50%;
         border: solid 0.2rem rgba(0, 0, 0, 0.6);
@@ -32,8 +36,9 @@
         }
 
         &--para {
-          text-align: center;
-          font-weight: font-weight(medium);
+          display: block;
+          font-size: 1.5rem;
+          font-weight: font-weight(bold);
         }
       }
     }
