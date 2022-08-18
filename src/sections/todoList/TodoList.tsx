@@ -2,6 +2,7 @@ import { FC } from 'react';
 import Divider from '../../components/divider/divider';
 import Todo from '../../components/todo/Todo';
 import { AppStateContext, useDispatch } from '../../context/TodoState';
+import { TodoStateValue } from '../../context/TodoStateType';
 import { AddTodo } from '../../pages/AddTodo';
 import { TodoDataType } from '../../types/todo';
 
@@ -9,6 +10,30 @@ export const TodoList: FC = () => {
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   const dispatch = useDispatch();
+
+  const toggle = (type: 'CAL' | 'PAGE', state: TodoStateValue) => {
+    if (type === 'CAL') {
+      dispatch({
+        type: 'TOGGLE',
+        payload: {
+          states: {
+            isCalendarOpen: !state.states.isCalendarOpen,
+            isPageOpen: false,
+          },
+        },
+      });
+    } else if (type === 'PAGE') {
+      dispatch({
+        type: 'TOGGLE',
+        payload: {
+          states: {
+            isCalendarOpen: false,
+            isPageOpen: !state.states.isPageOpen,
+          },
+        },
+      });
+    }
+  };
 
   return (
     <AppStateContext.Consumer>
@@ -28,15 +53,7 @@ export const TodoList: FC = () => {
                       : 'todolist__header--contents__trailler'
                   }
                   onClick={() => {
-                    dispatch({
-                      type: 'TOGGLE',
-                      payload: {
-                        states: {
-                          isCalendarOpen: !state.states.isCalendarOpen,
-                          isPageOpen: false,
-                        },
-                      },
-                    });
+                    toggle('CAL', state);
                   }}
                 >
                   &and;
@@ -47,15 +64,7 @@ export const TodoList: FC = () => {
                 <h3
                   className='todolist__header--trailler__addbtn'
                   onClick={() => {
-                    dispatch({
-                      type: 'TOGGLE',
-                      payload: {
-                        states: {
-                          isCalendarOpen: false,
-                          isPageOpen: !state.states.isPageOpen,
-                        },
-                      },
-                    });
+                    toggle('PAGE', state);
                   }}
                 >
                   +
@@ -69,15 +78,7 @@ export const TodoList: FC = () => {
                 <button
                   className='todolist__empty--addbtn'
                   onClick={() => {
-                    dispatch({
-                      type: 'TOGGLE',
-                      payload: {
-                        states: {
-                          isCalendarOpen: false,
-                          isPageOpen: !state.states.isPageOpen,
-                        },
-                      },
-                    });
+                    toggle('PAGE', state);
                   }}
                 >
                   Add TODO

@@ -32,3 +32,11 @@ export interface ToggleAction extends Action<'TOGGLE'> {
     states: TodoStateValue['states'];
   };
 }
+
+export interface AddTodoAction extends Action<'ADD_TODO'> {
+  payload: {
+    todo: {
+      items: Omit<TodoDataType, 'id'>;
+    };
+  };
+}
