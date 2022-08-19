@@ -1,33 +1,21 @@
-import React from 'react';
-import Divider from '../components/divider/divider';
+import React, { useState } from 'react';
+import CircleBtn from '../components/circleBtn/CircleBtn';
+import CustomSelector from '../components/customSelector/CustomSelector';
 import { AppStateContext, useDispatch } from '../context/TodoState';
 import { TodoStateValue } from '../context/TodoStateType';
 
 export const AddTodo = () => {
   const dispatch = useDispatch();
+  const [selectedIcon, setSelectedIcon] = useState('✔️');
 
-  let newIcon: string = '';
   let newTitle: string = '';
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     newTitle = e.target.value;
-    console.log(newTitle);
   };
 
-  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-  };
-
-  const closeHandler = (state: TodoStateValue) => {
-    dispatch({
-      type: 'TOGGLE',
-      payload: {
-        states: {
-          isCalendarOpen: false,
-          isPageOpen: !state.states.isPageOpen,
-        },
-      },
-    });
+  const handleIconChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedIcon(e.target.value);
   };
 
   const submitHandler = (state: TodoStateValue) => {
@@ -39,7 +27,7 @@ export const AddTodo = () => {
         todo: {
           items: {
             title: newTitle,
-            icon: newIcon,
+            icon: selectedIcon,
           },
         },
       },
@@ -59,6 +47,18 @@ export const AddTodo = () => {
   return (
     <AppStateContext.Consumer>
       {(state) => {
+        const closeHandler = () => {
+          dispatch({
+            type: 'TOGGLE',
+            payload: {
+              states: {
+                isCalendarOpen: false,
+                isPageOpen: !state.states.isPageOpen,
+              },
+            },
+          });
+        };
+
         return (
           <section className='addtodo container'>
             <div className='addtodo__overlay'></div>
@@ -67,37 +67,26 @@ export const AddTodo = () => {
               <div className='addtodo__contents--header'>
                 <h3 className='addtodo__contents--header__title'>Add</h3>
 
-                <button
-                  className='addtodo__contents--header__closeBtn'
-                  onClick={() => closeHandler(state)}
-                >
-                  X
-                </button>
+                <CircleBtn content='X' clickHandler={closeHandler} />
               </div>
 
-              <Divider />
-
               <form className='addtodo__contents--form'>
+                <CustomSelector />
                 <input
                   type='text'
                   placeholder='제목'
                   onChange={(e) => handleTextChange(e)}
                 />
-                <input
-                  type='date'
-                  placeholder='asdf'
-                  onChange={(e) => handleDateChange(e)}
-                />
-                <button
-                  type='button'
-                  className='button'
-                  onClick={() => {
-                    submitHandler(state);
-                  }}
-                >
-                  저장
-                </button>
               </form>
+              <button
+                type='button'
+                className='button'
+                onClick={() => {
+                  submitHandler(state);
+                }}
+              >
+                저장
+              </button>
             </div>
           </section>
         );

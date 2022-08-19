@@ -27,9 +27,11 @@
     @extend %sec-padding;
 
     &--header {
+      padding: 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      border-bottom: 2px solid #000;
 
       &__title {
         @extend %sec-h3;
@@ -61,26 +63,27 @@
 
     &--form {
       width: 100%;
+      display: flex;
+      gap: 2rem;
+      padding: 1rem 2rem;
+
+      select {
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        width: 5rem;
+      }
 
       input[type='text'] {
         width: 100%;
-        padding: 1.5rem 4rem;
+        padding: 1rem 3rem;
         border: 2px solid rgba(0, 0, 0, 0.2);
         border-radius: 0.5rem;
 
-        font-size: font-size(medium);
+        font-size: font-size(small);
 
         &:focus {
           outline: none;
         }
-      }
-
-      input[type='date'] {
-        margin: 1rem 2rem;
-        padding: 1rem 2rem;
-        border-radius: 2rem;
-        border: 2px solid rgba(0, 0, 0, 0.2);
-        background-color: rgba(0, 0, 0, 0.1);
       }
     }
   }

@@ -3,7 +3,6 @@ import CircleBtn from '../../components/circleBtn/CircleBtn';
 import Divider from '../../components/divider/divider';
 import Todo from '../../components/todo/Todo';
 import { AppStateContext, useDispatch } from '../../context/TodoState';
-import { TodoStateValue } from '../../context/TodoStateType';
 import { AddTodo } from '../../pages/AddTodo';
 import { TodoDataType } from '../../types/todo';
 
