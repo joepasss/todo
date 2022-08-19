@@ -2,7 +2,7 @@ import React from 'react';
 import './circleBtn.scss';
 
 interface Props {
-  content: string;
+  content: string | React.ReactNode;
   clickHandler?: Function;
   border?: boolean;
 }

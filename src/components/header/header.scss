@@ -1,0 +1,27 @@
+@import '../../styles/main-style';
+
+.header {
+  grid-column: container-start / container-end;
+
+  &__contents {
+    padding: 0.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--mainGroup {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: 2rem;
+      font-size: 2.5rem;
+      font-weight: font-weight(medium);
+    }
+
+    &--traillerGroup {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

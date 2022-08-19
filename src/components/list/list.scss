@@ -1,0 +1,7 @@
+@import '../../styles/main-style.scss';
+
+.list {
+  grid-column: center-start / center-end;
+
+  @extend %sec-padding;
+}

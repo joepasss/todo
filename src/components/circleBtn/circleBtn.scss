@@ -22,8 +22,8 @@ div.circleBtn {
 
   p.circleBtn__content {
     display: block;
-    font-size: 1.5rem;
-    font-weight: font-weight(bold);
+    font-size: 2rem;
+    font-weight: font-weight(medium);
   }
 }
 
@@ -33,6 +33,5 @@ div.circleBtn.noBorder {
   &:hover,
   &:active {
     background-color: transparent;
-    color: black;
   }
 }
