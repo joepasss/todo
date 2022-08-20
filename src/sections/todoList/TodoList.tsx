@@ -4,7 +4,7 @@ import Todo from '../../components/todo/Todo';
 import { AppStateContext, useDispatch } from '../../context/TodoState';
 import { TodoStateValue } from '../../context/TodoStateType';
 import { AddTodo } from '../../pages/AddTodo';
-import { TodoDataType } from '../../types/todo';
+import { TodoDataType } from '../../@types/todoTypes';
 
 export const TodoList: FC = () => {
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];

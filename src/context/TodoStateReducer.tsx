@@ -1,4 +1,4 @@
-import { TodoDataType } from '../types/todo';
+import { TodoDataType } from '../@types/todoTypes';
 import {
   AddTodoAction,
   DeleteTodoAction,

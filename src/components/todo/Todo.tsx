@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useDispatch } from '../../context/TodoState';
-import { TodoDataType } from '../../types/todo';
+import { TodoDataType } from '../../@types/todoTypes';
 import CircleBtn from '../circleBtn/CircleBtn';
 import './todo.scss';
 

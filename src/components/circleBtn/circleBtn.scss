@@ -1,8 +1,12 @@
 @import '../../styles/main-style.scss';
 
 div.circleBtn {
-  position: relative;
   cursor: pointer;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   height: 3.5rem;
   aspect-ratio: 1 / 1;
@@ -10,18 +14,15 @@ div.circleBtn {
   border: solid 0.2rem rgba(0, 0, 0, 0.6);
   color: black;
 
-  transition: all 0.25s cubic-bezier(1, 0, 0, 1);
-
-  &:hover,
-  &:active {
-    background-color: rgba(0, 0, 0, 1);
-    color: white;
-  }
-
   p.circleBtn__content {
-    text-align: center;
-    font-size: 1.75rem;
-    font-weight: font-weight(medium);
+    position: absolute;
+
+    display: block;
+
+    aspect-ratio: 1 / 1;
+    font-size: 1.5rem;
+    font-weight: font-weight(bold);
+    transition: all 0.25s cubic-bezier(1, 0, 0, 1);
   }
 }
 
@@ -31,5 +32,12 @@ div.circleBtn.noBorder {
   &:hover,
   &:active {
     background-color: transparent;
+  }
+}
+
+div.circleBtn.rotate {
+  img.circleBtn__content {
+    transform: rotate(135deg);
+    transition: all 0.25s cubic-bezier(1, 0, 0, 1);
   }
 }

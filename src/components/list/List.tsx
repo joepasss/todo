@@ -5,6 +5,7 @@ import CircleBtn from '../circleBtn/CircleBtn';
 import { AppStateContext, useDispatch } from '../../context/TodoState';
 import { TodoStateValue } from '../../context/TodoStateType';
 import AddItem from '../addItem/AddItem';
+import addIcon from '../../assets/ios-add-512.png';
 
 const List = () => {
   const dispatch = useDispatch();
@@ -40,7 +41,8 @@ const List = () => {
               content={getHeader(state.today)}
               trailler={
                 <CircleBtn
-                  content={state.states.isPageOpen ? 'x' : '+'}
+                  src={addIcon}
+                  rotate={state.states.isPageOpen}
                   clickHandler={() => toggleAddPage(state.states)}
                 />
               }

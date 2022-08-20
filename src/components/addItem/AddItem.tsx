@@ -7,7 +7,7 @@ const AddItem = () => {
 
   const [text, setText] = useState<string>('');
   const [isChange, setIsChange] = useState<boolean>(false);
-  const [btnDisabled, setBtnDisabled] = useState<boolean>(false);
+  const [btnDisabled, setBtnDisabled] = useState<boolean>(true);
   const [message, setMessage] = useState<string>('');
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +20,6 @@ const AddItem = () => {
     }
 
     setText(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
