@@ -39,9 +39,17 @@ const List = () => {
             />
             <div className='list__content'>
               {state.states.isPageOpen && <AddItem />}
-              <div className='list__content--todos'>
-                <Todo todo={todo[0]} />
-              </div>
+              {state.todo.items.length === 0 ? (
+                <div className='list__content--empty'>
+                  <h2 className='list__content--empty__content'>NO TODOs</h2>
+                </div>
+              ) : (
+                <div className='list__content--todos'>
+                  {state.todo.items.map((item, index) => {
+                    return <Todo todo={item} key={index} />;
+                  })}
+                </div>
+              )}
             </div>
           </div>
         );
