@@ -2,7 +2,6 @@ import Header from '../header/Header';
 import Todo from '../todo/Todo';
 import './list.scss';
 import CircleBtn from '../circleBtn/CircleBtn';
-import Calendar from '../calendar/Calendar';
 import { AppStateContext, useDispatch } from '../../context/TodoState';
 import { TodoStateValue } from '../../context/TodoStateType';
 import AddItem from '../addItem/AddItem';
