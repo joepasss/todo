@@ -49,7 +49,7 @@ const AddItem = () => {
         todo: {
           items: {
             title: title,
-            icon: '뭐',
+            icon: '📄',
           },
         },
       },

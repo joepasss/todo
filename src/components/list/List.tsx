@@ -22,13 +22,23 @@ const List = () => {
     });
   };
 
+  const getHeader = (today: Date) => {
+    const days: string[] = ['일', '월', '화', '수', '목', '금', '토'];
+
+    const month = today.getMonth() + 1;
+    const date = today.getDate();
+    const day = today.getDay();
+
+    return `${month}월 ${date}일 ${days[day]}`;
+  };
+
   return (
     <AppStateContext.Consumer>
       {(state) => {
         return (
           <div className='list'>
             <Header
-              content={['8월 20일 토요일', <Calendar />]}
+              content={getHeader(state.today)}
               trailler={
                 <CircleBtn
                   content={state.states.isPageOpen ? 'x' : '+'}
