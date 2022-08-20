@@ -1,0 +1,55 @@
+@import '../../styles/main-style.scss';
+
+div.addItem {
+  @extend %sec-padding;
+  margin: 1rem 2rem;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 2rem;
+
+  form.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    input[type='text'] {
+      width: 100%;
+      padding: 1rem 2rem;
+      border: 2px solid rgba(0, 0, 0, 0.5);
+      font-size: 2rem;
+      border-radius: 1rem;
+
+      &:focus {
+        border: 2px solid transparent;
+      }
+    }
+
+    button.submitBtn {
+      cursor: pointer;
+      width: 5rem;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      border: none;
+      color: white;
+      background-color: black;
+    }
+
+    button.submitBtn.disable {
+      cursor: default;
+      color: black;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  div.message-container {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p.error-message {
+      font-size: 2rem;
+      font-weight: font-weight(medium);
+    }
+  }
+}

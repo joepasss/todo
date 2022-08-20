@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useDispatch } from '../../context/TodoState';
 import { TodoDataType } from '../../types/todo';
+import CircleBtn from '../circleBtn/CircleBtn';
 import './todo.scss';
 
 interface Props {
@@ -28,13 +29,11 @@ const Todo: FC<Props> = ({ todo }) => {
       </div>
 
       <div className='todo__trailler'>
-        <div className='todo__trailler--moreinfo'>
-          <h3
-            className='todo__trailler--moreinfo__icon'
-            onClick={() => deleteFunction(todo.id)}
-          >
-            🗑️
-          </h3>
+        <div
+          className='todo__trailler--moreinfo'
+          onClick={() => deleteFunction(todo.id)}
+        >
+          <CircleBtn content='🗑️' border={false} />
         </div>
       </div>
     </div>

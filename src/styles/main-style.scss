@@ -30,10 +30,6 @@
 @import './variables';
 @import './utilities';
 
-@import '../sections/header/header';
-@import '../sections/todoList/todoList';
-@import '../pages/addTodo';
-
 // placeholders
 %sec-padding {
   padding: 2vh 4vw;
