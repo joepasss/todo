@@ -40,3 +40,9 @@ export interface AddTodoAction extends Action<'ADD_TODO'> {
     };
   };
 }
+
+export interface UpdateTodoAction extends Action<'UPDATE_TODO'> {
+  payload: {
+    updItem: Omit<TodoDataType, 'icon'>;
+  };
+}

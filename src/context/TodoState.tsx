@@ -4,6 +4,7 @@ import {
   DeleteTodoAction,
   TodoStateValue,
   ToggleAction,
+  UpdateTodoAction,
 } from './TodoStateType';
 import reducer from './TodoStateReducer';
 
@@ -25,7 +26,10 @@ const defultStateValue: TodoStateValue = {
 
 export const AppStateContext = createContext(defultStateValue);
 export const AppDispatchContext = createContext<
-  React.Dispatch<DeleteTodoAction | ToggleAction | AddTodoAction> | undefined
+  | React.Dispatch<
+      DeleteTodoAction | ToggleAction | AddTodoAction | UpdateTodoAction
+    >
+  | undefined
 >(undefined);
 
 export const useDispatch = () => {
