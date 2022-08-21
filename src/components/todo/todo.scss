@@ -6,14 +6,19 @@
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 0.5rem;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  gap: 1rem;
   align-items: center;
   justify-content: space-between;
+
+  position: relative;
 
   transition: transform 0.25s cubic-bezier(1, 0, 0, 1);
 
   &__content {
-    display: flex;
+    display: grid;
+    grid-template-columns: min-content 1fr;
     position: relative;
 
     &--icon {
@@ -33,13 +38,17 @@
 
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: start;
       overflow: hidden;
 
       margin-left: 2rem;
     }
 
     input[type='text'] {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+
       @extend .todo__content--title;
       background-color: transparent;
       padding: 0 1rem;

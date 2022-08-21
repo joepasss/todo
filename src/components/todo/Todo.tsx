@@ -34,6 +34,10 @@ const Todo: FC<Props> = ({ todo }) => {
   };
 
   const submitHandler = (id: string) => {
+    if (newTitle === '') {
+      deleteFunction(id);
+    }
+
     setIsEdit(false);
 
     dispatch({
