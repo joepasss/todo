@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import {
   AddTodoAction,
   DeleteTodoAction,
@@ -46,6 +46,23 @@ export const useDispatch = () => {
 
 const TodoStateProvider: React.FC<Props> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, defultStateValue);
+
+  useEffect(() => {
+    const todo = window.localStorage.getItem('todo');
+
+    if (todo) {
+      dispatch({
+        type: 'INITALIZE_TODO',
+        payload: {
+          todo: JSON.parse(todo),
+        },
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('todo', JSON.stringify(state.todo));
+  }, [state.todo]);
 
   return (
     <AppStateContext.Provider value={state}>
