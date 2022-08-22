@@ -15,18 +15,12 @@ const Todo: FC<Props> = ({ todo }) => {
   const dispatch = useDispatch();
 
   const deleteFunction = (id: string) => {
-    if (window.confirm('Are you sure you want to delete?')) {
-      dispatch({
-        type: 'DELETE_TODO',
-        payload: {
-          id: id,
-        },
-      });
-    }
-  };
-
-  const titleReset = () => {
-    setNewTitle(todo.title);
+    dispatch({
+      type: 'DELETE_TODO',
+      payload: {
+        id: id,
+      },
+    });
   };
 
   const changeTextHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,37 +81,12 @@ const Todo: FC<Props> = ({ todo }) => {
       </div>
 
       <div className='todo__trailler'>
-        {isEdit ? (
-          <>
-            <div
-              className='todo__trailler--icon'
-              onClick={() => {
-                setIsEdit(!isEdit);
-                titleReset();
-              }}
-            >
-              <CircleBtn content='X' border={false} />
-            </div>
-            <div className='todo__trailler--icon' onClick={() => {}}>
-              <CircleBtn content='✔️' border={false} />
-            </div>
-          </>
-        ) : (
-          <>
-            <div
-              className='todo__trailler--icon'
-              onClick={() => setIsEdit(!isEdit)}
-            >
-              <CircleBtn content='🖊️' border={false} />
-            </div>
-            <div
-              className='todo__trailler--icon'
-              onClick={() => deleteFunction(todo.id)}
-            >
-              <CircleBtn content='🗑️' border={false} />
-            </div>
-          </>
-        )}
+        <div
+          className='todo__trailler--icon'
+          onClick={() => deleteFunction(todo.id)}
+        >
+          <CircleBtn content='🗑️' border={false} />
+        </div>
       </div>
     </div>
   );
