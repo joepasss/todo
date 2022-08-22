@@ -73,14 +73,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: rgba(0, 0, 0, 0.1);
       border-radius: 50%;
 
       transition: all 0.25s cubic-bezier(1, 0, 0, 1);
 
       &:hover,
       &:active {
-        background-color: white;
+        transform: scale(1.02);
       }
     }
   }
@@ -88,5 +87,19 @@
   @include media-tablet {
     margin: 1rem 2rem;
     padding: 2rem 3rem;
+
+    &__content {
+      &--icon {
+        font-size: 2rem;
+      }
+
+      &--title {
+        font-size: 2rem;
+      }
+
+      input[type='text'] {
+        font-size: 2rem;
+      }
+    }
   }
 }

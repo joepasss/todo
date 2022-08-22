@@ -26,6 +26,10 @@ $font-sizes: (
   'xlarge': calc(2.5rem + 5vw),
 );
 
+$desktop-fonts: (
+  'small': 2rem,
+);
+
 @function font-size($font-size-style) {
   @return map-get($font-sizes, $font-size-style);
 }

@@ -18,7 +18,7 @@ div.circleBtn {
   p.circleBtn__content {
     position: absolute;
 
-    display: block;
+    display: inline-block;
 
     aspect-ratio: 1 / 1;
     font-size: font-size(small);
@@ -32,6 +32,10 @@ div.circleBtn {
 
   @include media-tablet {
     height: 3.5rem;
+
+    p.circleBtn__content {
+      font-size: 2rem;
+    }
   }
 }
 
