@@ -8,7 +8,7 @@ div.circleBtn {
   align-items: center;
   justify-content: center;
 
-  height: 3.5rem;
+  height: calc(2.5rem + 1vw);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   border: solid 0.2rem rgba(0, 0, 0, 0.6);
@@ -21,7 +21,7 @@ div.circleBtn {
     display: block;
 
     aspect-ratio: 1 / 1;
-    font-size: 1.5rem;
+    font-size: font-size(small);
     font-weight: font-weight(bold);
   }
 

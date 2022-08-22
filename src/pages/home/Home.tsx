@@ -1,5 +1,3 @@
-import './home.scss';
-
 import TodoStateProvider from '../../context/TodoState';
 import Header from '../../components/header/Header';
 import List from '../../components/list/List';
