@@ -22,7 +22,7 @@
     position: relative;
 
     &--icon {
-      font-size: font-size(small);
+      font-size: font-size(medium);
 
       width: calc(3rem + 1vw);
       padding-right: 1rem;
@@ -35,7 +35,8 @@
     }
 
     &--title {
-      font-size: font-size(small);
+      font-size: font-size(medium);
+      font-weight: font-weight(medium);
 
       display: flex;
       align-items: center;
