@@ -36,7 +36,7 @@ div.addItem {
 
     button.submitBtn.disable {
       cursor: default;
-      color: black;
+      color: rgba(0, 0, 0, 0.5);
       background-color: rgba(255, 255, 255, 0.5);
     }
   }
@@ -50,6 +50,14 @@ div.addItem {
     p.error-message {
       font-size: 2rem;
       font-weight: font-weight(medium);
+    }
+  }
+
+  @include media-tablet {
+    form.input-group {
+      button.submitBtn {
+        width: 4rem;
+      }
     }
   }
 }

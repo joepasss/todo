@@ -29,6 +29,10 @@ div.circleBtn {
   &:active {
     transform: scale(1.02);
   }
+
+  @include media-tablet {
+    height: 3.5rem;
+  }
 }
 
 div.circleBtn.noBorder {

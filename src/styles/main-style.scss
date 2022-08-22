@@ -1,27 +1,6 @@
-// 1300px break point
-@mixin media-desktop {
-  @media screen and (min-width: break-point(desktop)) {
-    @content;
-  }
-}
-
-// 800px break point
+// 700px break point
 @mixin media-tablet {
-  @media screen and (max-width: break-point(tablet)) {
-    @content;
-  }
-}
-
-// 600px break point
-@mixin media-medium {
-  @media screen and (max-width: break-point(medium)) {
-    @content;
-  }
-}
-
-// 400px break point
-@mixin media-small {
-  @media screen and (max-width: break-point(small)) {
+  @media screen and (min-width: break-point(tablet)) {
     @content;
   }
 }
